@@ -2,5 +2,3 @@ root: ./
 
 site:
   title: "Wiese Methodology"
-  structure:
-    - README.md
