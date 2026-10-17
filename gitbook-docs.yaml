@@ -1,0 +1,8 @@
+root: ./
+
+site:
+  title: "Wiese Methodology"
+
+structure:
+  summary: SUMMARY.md
+  readme: README.md
