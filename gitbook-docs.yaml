@@ -1,4 +1,10 @@
-root: ./
+$schema: https://api.gitbook.com/v1/site.schema.json
 
 site:
-  title: "Wiese Methodology"
+  title: Wiese Methodology
+  structure:
+    - type: space
+      key: main-docs
+      title: Methodology
+      path: ./docs
+      default: true
