@@ -1,0 +1,22 @@
+name: Docs check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gitbook:
+    name: GitBook config and SUMMARY links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml==6.0.2 jsonschema==4.23.0
+      - run: python .github/scripts/check_gitbook.py --project .

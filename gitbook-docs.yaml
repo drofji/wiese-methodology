@@ -1,4 +1,4 @@
-$schema: https://api.gitbook.com/v1/site.schema.json
+$schema: https://api.gitbook.com/gitbook-docs.yaml
 
 site:
   title: Wiese Methodology
@@ -6,5 +6,7 @@ site:
     - type: space
       key: main-docs
       title: Methodology
-      path: ./docs
+      path: methodology
       default: true
+      content:
+        directory: ./

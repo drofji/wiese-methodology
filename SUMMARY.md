@@ -25,6 +25,5 @@
 * [System Rules (.cursorrules)](docs/05-toolkit/cursorrules.md)
 
 ---
-* [Contributors & Governance](CONTRIBUTORS.md)
-* [Contributing Guidelines](CONTRIBUTING.md)
+* [Contributors & Attribution](CONTRIBUTING.md)
 * [License](LICENSE.md)
