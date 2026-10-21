@@ -7,6 +7,7 @@
 * [My Path: From Discipline to Adaptive AI](docs/01-introduction/my-path.md)
 
 ## 2. Pipeline Architecture
+* [Ready Parts: Preparing the Ground for AI](docs/02-pipeline/ready-parts.md)
 * [Role Separation: Architect vs. Operator](docs/02-pipeline/roles.md)
 * [Flow Stages & Atomic Tasks](docs/02-pipeline/stages.md)
 * [Context Window Management](docs/02-pipeline/context-management.md)
