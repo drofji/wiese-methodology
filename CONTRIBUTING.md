@@ -3,7 +3,7 @@
 ## Creator & Lead Author
 
 * **Alexander Wiese** — *Author of the Wiese Methodology*
-  * GitHub: [@alexander-wiese](https://github.com/alexander-wiese)
+  * GitHub: [@drofji](https://github.com/drofji)
   * Role: Concept Architecture, Framework Maintenance, Core Principles.
 
 ---
