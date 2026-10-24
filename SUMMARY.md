@@ -23,7 +23,7 @@
 
 ## 5. Toolkit & Rules
 * [Prompt Templates](docs/05-toolkit/prompt-templates.md)
-* [System Rules (.cursorrules)](docs/05-toolkit/cursorrules.md)
+* [System Rules for AI Assistants](docs/05-toolkit/ai-rules.md)
 
 ---
 * [Contributors & Attribution](CONTRIBUTING.md)

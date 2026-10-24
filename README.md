@@ -27,7 +27,7 @@ It synthesizes structured engineering discipline with the adaptability, speed, a
 ## 🚀 Quick Start
 
 1. **Read the Manifesto:** Understand why unstructured AI prompting creates technical debt.
-2. **Apply Rules & Configs:** Load our standard configuration templates (`.cursorrules` / system prompts) into your AI environment.
+2. **Apply Rules & Configs:** Load the standard rule files and system prompts into whichever AI assistant you use.
 3. **Follow the Review Checklist:** Validate generated code using our pre-merge quality gates.
 
 📖 **[Read Full Documentation on GitBook](https://gitbook.com)**

@@ -11,6 +11,9 @@ History before this file was created lives in the git log.
 - "The Manifesto & Challenges" page: why the methodology exists, the three common fears about AI (data leaks, wrong work, hallucinations) and how the methodology answers each, who it is for, and the plain-language principle.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
+### Changed
+- The toolkit page on rule files is now tool-neutral: "System Rules for AI Assistants" replaces "System Rules (.cursorrules)", and the README no longer ties the methodology to a single AI tool.
+
 ### Fixed
 - The author's GitHub link on the "Contributors & Attribution" page now points to the real account (@drofji).
 - GitBook site sync: `gitbook-docs.yaml` now follows GitBook's site configuration schema, so the documentation site can publish from the repository instead of failing every sync with "Failed to parse site configuration".
