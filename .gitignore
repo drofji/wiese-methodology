@@ -1,0 +1,7 @@
+# Ignore every dot-file and dot-folder by default (local tool settings, editor state, AI assistant folders).
+.*
+# Allow-list: dot-files the repository actually needs.
+!.gitignore
+!.github/
+
+__pycache__/
