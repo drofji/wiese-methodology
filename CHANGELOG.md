@@ -7,6 +7,7 @@ History before this file was created lives in the git log.
 ## [Unreleased]
 
 ### Added
+- "Writing a Task for AI" page (was the empty "Prompt Templates"): what a good task says, where the AI must stop and ask (anything public, deleting, anything not asked for), why an example beats a description, and how repeated instructions are written once in three layers — project rules, reusable skills, and the tools themselves.
 - "AI Failure Patterns & Hallucinations" page: why models miss information in long context and invent facts, what open research has measured about it, and how short tasks, restated goals, checks outside the model and a shared task memory keep these errors from reaching the result. Seven open sources, each named where it is used and listed with the point it supports; no unmeasured numbers.
 - "Ready Parts: Preparing the Ground for AI" page: eight principles for preparing work before AI touches it, each explained as problem, cause, solution, reasoning and result, with everyday examples.
 - "The Manifesto & Challenges" page: why the methodology exists, the three common fears about AI (data leaks, wrong work, hallucinations) and how the methodology answers each, who it is for, and the plain-language principle.

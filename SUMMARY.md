@@ -22,7 +22,7 @@
 * [Safe Refactoring Patterns](docs/04-examples/refactoring.md)
 
 ## 5. Toolkit & Rules
-* [Prompt Templates](docs/05-toolkit/prompt-templates.md)
+* [Writing a Task for AI](docs/05-toolkit/prompt-templates.md)
 * [System Rules for AI Assistants](docs/05-toolkit/ai-rules.md)
 
 ---
