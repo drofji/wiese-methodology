@@ -14,6 +14,7 @@ History before this file was created lives in the git log.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
 ### Changed
+- "Ready Parts" page rewritten to read like a book chapter: the same eight principles told as one story with everyday examples, without repeated headings or the summary table, and with its source named in the text.
 - The toolkit page on rule files is now tool-neutral: "System Rules for AI Assistants" replaces "System Rules (.cursorrules)", and the README no longer ties the methodology to a single AI tool.
 
 ### Fixed

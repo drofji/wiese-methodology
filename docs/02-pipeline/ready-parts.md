@@ -1,217 +1,114 @@
 # Ready Parts: Preparing the Ground for AI
 
-When you work with AI, you rarely know who will write the next part of the work: you, a colleague, or an AI model. Whoever it is starts with only what you provide.
+Think of two ways to build a bookshelf. In the first, you get a pile of planks, a saw and a bag of loose screws. In the second, you get a flat box: the boards are cut to size, every hole is drilled, the screws are sorted into labelled bags, and a picture shows how it all fits together. Both shelves can turn out fine. But only one of them is likely to stand straight on the first try.
 
-The most important work therefore happens **before** anything is written: preparing the ground. This chapter describes eight principles for doing so.
-
-Each principle follows the same structure: **the problem, why it happens, how to solve it, why this approach, and what you gain.**
+Working with AI is the same. Whoever does the next piece of work, you, a colleague or an AI, starts with only what you provide. So the most important work happens **before** anything is written: preparing the ground. This chapter describes eight ways to do it.
 
 ---
 
-## 1. Build from proven parts
+## Start from what already works
 
-**The problem**
-The AI builds everything from scratch. Each result differs slightly from the last, and each one must be checked in full.
+When there is nothing ready to reuse, the AI builds everything from scratch. Each result is a little different from the last, and each one has to be checked from the beginning.
 
-**Why it happens**
-The AI has no proven building blocks to start from. When there is nothing to reuse, it invents.
+The answer is to collect ready parts: pieces that have already been tested and are known to work. New work then becomes mostly a matter of putting these parts together, with as little new material as possible.
 
-**How to solve it**
-Collect ready parts: components that have already been tested and are known to work. Build new solutions by combining these parts, and keep the amount of new work to a minimum.
+Parts that many people have already checked are the safest. A widely used open-source framework, reviewed by thousands of developers, is more reliable than code written once by one person or one AI. In my own work I build on Django, a framework maintained by a large community, and I collect my own ready parts in an open-source library, Django-Snapadmin. A new feature becomes mostly configuration rather than new code. At home it is the same idea as cooking from a recipe your family has made a hundred times, instead of guessing the amounts.
 
-Prefer parts that many people have already checked. A widely used open-source framework, reviewed by thousands of developers, is more reliable than code written once by a single person or a single AI.
-
-- **In software:** I build on Django, a framework maintained and reviewed by a large community. On top of it, I collect my own ready parts in an open-source library, Django-Snapadmin. A new feature becomes mostly configuration rather than new code.
-- **In everyday life:** a cook follows a tested recipe instead of guessing quantities. An accountant uses an invoice template whose formulas are already correct.
-
-**Why this approach**
-Checking is the slowest and most expensive part of working with AI. A part that many people have already checked does not need to be checked again from the beginning. Writing everything anew, even with careful review, means a full review every time. Composition also limits what can go wrong: when proven parts are combined, an error can only be a gap in the final picture, and gaps are easy to see.
-
-**What you gain**
-Less new work, fewer new errors, and faster results. When something is still wrong, it is usually something *missing*, such as a field or a detail, rather than something broken.
+Checking is the slowest and most expensive part of working with AI. A part that many people have already checked does not need to be checked again from zero. And when proven parts are combined, an error can only be a gap in the final picture: a missing field, a missing detail. Gaps are easy to see.
 
 ---
 
-## 2. Let the interface explain itself
+## Let the part explain itself
 
-**The problem**
-Using a component correctly requires long instructions. Those instructions get lost, forgotten, or misread.
+If using a part correctly takes a long instruction, that instruction will sooner or later be lost, forgotten or misread. The knowledge sits in someone's head or in a separate document, not in the part itself.
 
-**Why it happens**
-The knowledge of how to use the component lives in someone's head or in a separate document, not in the component itself.
+A light switch needs no manual. You see it and you know what to do. The same goes for a plug that fits only one way into the socket. Good parts for AI work like that: they have a clear interface that shows how they are used. A well-described API or MCP server (a fixed, documented way for a program or an AI to use a tool) tells the AI what it can do and what data it needs, without any extra explanation.
 
-**How to solve it**
-Give every component a clear interface that shows how it is used. The interface becomes the instruction.
-
-- **In software:** a well-described API or MCP server tells the AI what it can do and which data it requires. No additional context is needed.
-- **In everyday life:** a well-designed form has clear fields and labels. Nobody needs a manual to complete it.
-
-**Why this approach**
-Instructions kept in a separate document drift away from the component, become outdated, or are simply not read. An interface cannot be skipped: it is used every time the component is used, so it stays current. It also works the same way for a person and for an AI.
-
-**What you gain**
-Less context to supply, less to explain, and less room for misunderstanding, for people and AI alike.
+An instruction kept somewhere else drifts away from the part and goes out of date. An interface cannot be skipped: it is used every time the part is used, so it stays current. And it works the same way for a person and for an AI.
 
 ---
 
-## 3. Guide with context, verify with fixed rules
+## Guide with words, check with fixed rules
 
-**The problem**
-You include rules in your request. The AI follows some of them and ignores others.
+You write rules into your request, and the AI follows some of them and ignores others. That is not bad will. Rules written in a request are only advice, and nothing makes anyone follow advice.
 
-**Why it happens**
-Rules written in a request are guidance only. Nothing enforces them.
+So the methodology uses two kinds of rules:
 
-**How to solve it**
-Use two kinds of rules:
+- **Guiding rules** are the information you give in the context. They point the work in the right direction.
+- **Fixed rules** are built into an interface: an API, a script, a test. They check the result at the end.
 
-- **Dynamic rules** are the information you provide in the context. They **guide** the work in the right direction.
-- **Fixed rules** are built into an interface, such as an API, a script, or a test. They **verify** the result at the end.
+A parent can ask the children to fasten their seat belts. That is guidance. The car that keeps beeping until every belt is fastened is a fixed rule. In software, the request describes what to build, and automated tests decide whether the result is accepted.
 
-Context guides; the interface verifies.
-
-- **In software:** the request describes what to build; automated tests decide whether the result is accepted.
-- **In everyday life:** a manager explains a task to a new employee (guidance), while the accounting system rejects any invoice without a tax number (a fixed rule).
-
-**Why this approach**
-Fixed rules alone are never enough: every set of fixed rules always has something left to correct. Guidance alone is too weak: nothing ensures it is followed. Combining the two gives each its proper role: flexibility during the work, certainty at the end.
-
-**What you gain**
-Flexibility where it is useful, and a firm stop where mistakes are not acceptable.
+Neither kind is enough on its own. Fixed rules always leave something to correct, and guidance alone is too weak because nothing enforces it. Together, the words give flexibility during the work and the fixed rules give certainty at the end.
 
 ---
 
-## 4. Let errors show the way
+## Let mistakes make noise
 
-**The problem**
-When information is missing, the AI fills the gap with a guess, and the guess looks like a real answer.
+When information is missing, the AI fills the gap with a guess, and the guess looks just like a real answer. Nothing stops it.
 
-**Why it happens**
-Nothing stops it. A silent gap is filled with something that merely *sounds* right.
+The cure is to set things up so that a missing piece causes a **clear, visible error**. A cash machine gives no money until the right PIN is entered; it does not hand out a guess. In software, a required field without a value stops the process with a clear message. The AI then cannot carry on until it supplies the right data. It tries, adjusts and tries again, the way people work through an unfamiliar problem, and the way developers once searched forums until something finally worked.
 
-**How to solve it**
-Design your work so that missing information produces a **clear, visible error**. The AI then cannot proceed until it supplies the correct data. It tries, adjusts, and tries again, just as people approach an unfamiliar problem, and just as developers once searched forums and chats until a solution finally worked.
-
-- **In software:** a required field without a value stops the process with a clear message.
-- **In everyday life:** a cash machine releases no money until the correct PIN is entered.
-
-**Why this approach**
-A wrong result that looks correct is the most expensive kind of mistake, because it is discovered late, often by the end user. An error costs one more attempt. A hidden guess can cost far more, much later. Making gaps visible turns the AI's persistence into an advantage instead of a risk.
-
-**What you gain**
-No silent wrong results. Every gap surfaces early, while it is still cheap to fix.
+A wrong result that looks right is the most expensive mistake of all, because it is found late, often by the person who uses it. A visible error costs one more attempt. Making gaps visible turns the AI's persistence from a risk into an advantage.
 
 ---
 
-## 5. Keep the check separate from the work
+## Keep the check apart from the work
 
-**The problem**
-The AI changes not only the work, but also the check that is meant to test it.
+Sometimes the AI changes not only the work, but also the check that is supposed to test it.
 
-**Why it happens**
-When the same worker creates both the result and its check, with the same reasoning and the same context, the check inherits the same blind spots. And a check that can be edited during the task can be edited to pass.
+When the same worker writes both the result and its check, with the same reasoning and the same context, the check has the same blind spots. You would not mark your own exam. And a check that can be edited during the task can be edited until it passes.
 
-**How to solve it**
-Build the check as an independent part, as if one person were reviewing another. The reviewer has separate instructions and separate reasoning, and starts from the beginning with its own knowledge and tools, without the first worker's context.
+So the check is built as a separate part, as if one person were reviewing another. The reviewer gets its own instructions and its own reasoning, and starts from the beginning with its own knowledge and tools, without the first worker's context.
 
-Place the check in a fixed interface, such as an API, an MCP server, a framework, or a library. While a task is being processed, the check does not change: the AI must follow its rules and checklists, and in many cases it cannot change them at all. Improving the checks is a separate task, done and reviewed on its own.
+The check lives in a fixed interface, such as an API, an MCP server, a framework or a library. While a task is running, the check does not change: the AI must follow its rules and checklists, and often it cannot change them at all. Improving the checks is a separate task, done and reviewed on its own. Automatic checks are combined with human review, and the work is cut into small modules and small steps, so that a person can keep up with everything that needs checking.
 
-Combine automated checks with human review, and work in small modules and small steps, so that a person can keep pace with everything that needs to be verified.
-
-- **In software:** tests and validation rules live in their own interface, and any change to them is reviewed by a person.
-- **In everyday life:** the person who drafts a contract is not the person who approves it.
-
-**Why this approach**
-Asking the same AI to review its own work repeats its reasoning and its blind spots. A check kept in the same place as the work can be bent to fit the work. A check that is independent and fixed for the duration of the task holds the line; it still evolves over time, but only as separate, reviewed work.
-
-**What you gain**
-Mistakes are found by someone who did not make them. Weak points appear early, while they are still small.
+A check that is independent and fixed for the length of a task holds the line. It still improves over time, but only as separate, reviewed work.
 
 ---
 
-## 6. Turn every algorithm into a script
+## Once it works, make it a script
 
-**The problem**
-The AI performs the same task again and again, and each result may differ slightly or be slightly wrong.
+The AI performs the same job again and again, and each result can be slightly different or slightly wrong. Every new attempt is a new chance to get it wrong, and nothing from the last attempt that worked is kept.
 
-**Why it happens**
-Every new attempt is a new opportunity to hallucinate, and nothing is kept from the last attempt that worked.
+You would not set your alarm by hand every evening if your phone can repeat it. In the same way, as soon as a procedure is clear, it becomes a script: a defined action that runs with one command. The script is split into small modules, each with one job, so the modules can be reused, and each module is covered by tests. AI models already write small helper scripts in the background to process data. Those drafts are worth keeping and turning into tools.
 
-**How to solve it**
-As soon as a procedure is clear, turn it into a script: a defined action that runs with a single command. Divide it into small modules, each with a single responsibility, so that they can be reused. Cover each module with tests.
-
-AI models already write small helper scripts in the background to process data. Do not discard these drafts; turn them into tools.
-
-- **In software:** a tested script handles a recurring data task instead of a new AI request each time.
-- **In everyday life:** a saved spreadsheet with working formulas replaces the same manual calculation every month.
-
-**Why this approach**
-A more precise prompt is still a new attempt each time, and every attempt carries a new risk of error. A script is verified once and then behaves the same way every time. Because the AI already produces such scripts as drafts, keeping them costs very little.
-
-**What you gain**
-A verified result, reuse from the very first day, and a growing library of reliable actions. The time spent writing a script is not lost: the procedure is verified once and works every time afterwards. The goal is not to save time, but to use your resources well.
+A better prompt is still a new attempt every time. A script is checked once and then behaves the same way every time. Writing it is not lost time: the goal is not to save time, but to use your effort where it counts. What you build up is a growing library of actions you can trust.
 
 ---
 
-## 7. Keep related things together
+## Keep related things together
 
-**The problem**
-The AI builds something that already exists, simply because it looked in the wrong place.
+The AI builds something that already exists, simply because it looked in the wrong place. Related parts were scattered, or the same thing appeared under different names.
 
-**Why it happens**
-It could not see what was already there. Related parts were scattered, or the same thing appeared under different names.
+A shopping list sorted by aisle makes sure you do not forget the item next to the one you came for. In a shop, signs and shelf labels lead you to the right place. But in a second-hand shop you will never find a "T-shirt" that hangs under "tank top".
 
-**How to solve it**
-Organise your work as a **tree**, in which related items sit side by side and each carries a short description.
+Work for AI is organised the same way, as a **tree** in which related items sit side by side and each has a short description:
 
-- **Finding things:** search by keyword first. If that fails, walk the tree, which is the reliable path.
-- **Guidance along the way:** at every level of the tree, provide hints and links to related branches.
-- **Consistent names:** give each thing a single name. Different names for the same thing break the search.
-- **Readability for people:** alongside the structure, keep short maps, diagrams, or mockups.
+- **Search first, then the tree.** Search by keyword first. If that fails, walk the tree, which is the reliable path.
+- **Signs along the way.** Every level of the tree has short hints and links to related branches.
+- **One thing, one name.** Different names for the same thing break the search.
+- **Maps for people.** Alongside the structure, short maps, diagrams or mockups help people find their way.
 
-Examples:
-
-- **In software:** modules are grouped by area, each with a short description, and the project has a simple map.
-- **In everyday life:** a shopping list grouped by aisle ensures you do not forget the item next to the one you came for. In a shop, department signs and shelf labels lead you to the right place. In a second-hand shop, however, you will not find a "T-shirt" if it is hanging under "tank top".
-
-**Why this approach**
-Search alone fails whenever the same thing carries a different name. A tree alone is reliable but slow. Searching first saves time; falling back to the tree adds certainty. A complete list of every name and synonym is not the answer either: with a lot of data, it grows too large to maintain.
-
-**What you gain**
-Existing work is found instead of rebuilt. People and AI find their way faster and create fewer duplicates.
+Search alone fails as soon as something has a different name. The tree alone is reliable but slow. Searching first saves time, and the tree adds certainty. A full list of every name and synonym does not solve it either: with a lot of data it grows too big to keep up to date.
 
 ---
 
-## 8. Treat human-verified material as the foundation
+## Build on what people have checked
 
-**The problem**
-A growing share of content is produced by machines, and it is easy to build on material that no one has actually verified.
+More and more of what is written today is produced by machines, and it is easy to build on material that nobody has actually checked. Machine-made content is fast and plentiful. Material checked by people takes longer to make and is harder to find.
 
-**Why it happens**
-Machine-generated content is fast and abundant. Human-verified material takes longer to create and is harder to find.
+That checked material is the foundation: working solutions, templates, rules, formulas and scripts. It is collected, kept up to date and given to the AI as the basis for new work. Without it there is nothing to compare a result against, and errors pass from one piece of work into the next unnoticed.
 
-**How to solve it**
-Treat human-verified material, including working solutions, templates, rules, formulas, and scripts, as your foundation. Collect it, maintain it, and give it to the AI as the basis for new work.
+The people who build AI models face the same problem. The study *AI models collapse when trained on recursively generated data* ([Shumailov et al., 2024](https://doi.org/10.1038/s41586-024-07566-y)) [1] showed that models trained again and again on text made by other models slowly lose the less common parts of the original data and get worse with each generation. The authors call this "model collapse" and conclude that data from real human activity becomes more valuable as machine-made content spreads.
 
-The developers of AI models face the same challenge. Research published in *Nature* in 2024 showed that models trained repeatedly on content generated by other models gradually lose the less common parts of the original data and degrade with each generation; the authors call this "model collapse" and conclude that data from genuine human activity becomes more valuable as machine-generated content spreads ([Shumailov et al., *AI models collapse when trained on recursively generated data*, Nature 631, 2024](https://doi.org/10.1038/s41586-024-07566-y)).
-
-**Why this approach**
-Material that no one has verified cannot serve as a reference: there is nothing to compare a result against. Human-verified material provides that reference. Without it, errors pass from one piece of work into the next unnoticed.
-
-**What you gain**
-Cleaner context, faster solutions, and results that are easier to verify, because they can be compared with material already known to work.
+Material that people have checked is the measuring stick. Everything else is measured against it.
 
 ---
 
-## Summary
+## Sources
 
-| Principle | In one sentence |
-|---|---|
-| Proven parts | Build from what has already been proven. |
-| Self-explaining interfaces | The interface is the instruction. |
-| Two kinds of rules | Context guides; fixed rules verify. |
-| Errors as guidance | A visible error is better than a silent guess. |
-| Separate checks | The reviewer must not share the author's blind spots. |
-| Scripts | Verify a procedure once, then reuse it. |
-| Tree structure | Keep related things together, under consistent names. |
-| Human-verified material | The foundation on which everything else is built. |
+All sources are open and free to read. Each entry says which point in this chapter it supports.
+
+1. **Shumailov et al., *AI models collapse when trained on recursively generated data*, Nature 631, 2024** — https://doi.org/10.1038/s41586-024-07566-y
+   Supports: models trained repeatedly on machine-made content lose rare data and degrade; human-made data gains value. Section "Build on what people have checked".
