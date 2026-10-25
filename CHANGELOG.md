@@ -7,7 +7,7 @@ History before this file was created lives in the git log.
 ## [Unreleased]
 
 ### Added
-- "AI Failure Patterns & Hallucinations" page: why models miss information in long context and invent facts, what open research has measured about it, and how short tasks, restated goals, checks outside the model and a shared task memory keep these errors from reaching the result. Seven open sources; no unmeasured numbers.
+- "AI Failure Patterns & Hallucinations" page: why models miss information in long context and invent facts, what open research has measured about it, and how short tasks, restated goals, checks outside the model and a shared task memory keep these errors from reaching the result. Seven open sources, each named where it is used and listed with the point it supports; no unmeasured numbers.
 - "Ready Parts: Preparing the Ground for AI" page: eight principles for preparing work before AI touches it, each explained as problem, cause, solution, reasoning and result, with everyday examples.
 - "The Manifesto & Challenges" page: why the methodology exists, the three common fears about AI (data leaks, wrong work, hallucinations) and how the methodology answers each, who it is for, and the plain-language principle.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.

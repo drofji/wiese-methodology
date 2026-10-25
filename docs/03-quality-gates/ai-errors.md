@@ -4,7 +4,7 @@ Imagine handing a new colleague a folder of two hundred pages and asking one que
 
 AI models make the same kind of mistake, and they make it in a voice that sounds just as sure as when they are right. An answer that sounds certain but is not backed by the facts is called a **hallucination**. This chapter is about where such errors come from and why most of them never need to reach the final result.
 
-Every number here comes from published research that anyone can read for free. The sources are listed at the end. Where an idea rests on reasoning rather than on measurement, the text says so.
+Every number here comes from published research that anyone can read for free. Each study is named where it is used, with a link, and the list at the end says which point each one supports. Where an idea rests on reasoning rather than on measurement, the text says so.
 
 ---
 
@@ -12,11 +12,11 @@ Every number here comes from published research that anyone can read for free. T
 
 A model does not read its input the way a careful person reads a contract, line by line with equal attention. It uses what stands at the **start** and at the **end** best, and what lies in the **middle** worst.
 
-The effect is larger than most people expect. In one well-known study, a model answered correctly 75.8% of the time when the answer was in the first of twenty documents, and only 53.8% when it was in the middle. Given no documents at all, it scored 56.1%. In other words, burying the answer in the middle helped less than giving the model nothing. [1]
+The effect is larger than most people expect. In the study *Lost in the Middle* ([Liu et al., 2024](https://arxiv.org/abs/2307.03172)) [1], a model answered correctly 75.8% of the time when the answer was in the first of twenty documents, and only 53.8% when it was in the middle. Given no documents at all, it scored 56.1%. In other words, burying the answer in the middle helped less than giving the model nothing.
 
-Length makes it worse. Of seventeen models that claimed to handle at least 32,000 tokens, only about half still performed well at that length. [2] When the answer uses different words from the question, so that the model has to understand rather than match, one leading model fell from 99.3% to 69.7%. [3] And reasoning weakens long before a model reaches its technical limit. [5]
+Length makes it worse. The *RULER* benchmark ([Hsieh et al., 2024](https://arxiv.org/abs/2404.06654)) [2] tested seventeen models that claimed to handle at least 32,000 tokens; only about half still performed well at that length. When the answer uses different words from the question, so that the model has to understand rather than match, the drop is larger: in the *NoLiMa* test ([Modarressi et al., 2025](https://arxiv.org/abs/2502.05167)) [3], one leading model fell from 99.3% to 69.7%. And the study *Same Task, More Tokens* ([Levy et al., 2024](https://arxiv.org/abs/2402.14848)) [4] shows that reasoning weakens long before a model reaches its technical limit.
 
-The natural reaction is to give the AI *more*, just to be safe. That is exactly the wrong move. A study of eighteen models found that quality drops as the input grows, even when the task itself stays the same. On one memory test, a short, focused input of about 300 tokens beat the full input of about 113,000 tokens for every model tested. Similar-looking but irrelevant material made things worse still. [4]
+The natural reaction is to give the AI *more*, just to be safe. That is exactly the wrong move. The *Context Rot* study ([Hong et al., 2025](https://www.trychroma.com/research/context-rot)) [5] tested eighteen models and found that quality drops as the input grows, even when the task itself stays the same. On one memory test, a short, focused input of about 300 tokens beat the full input of about 113,000 tokens for every model tested. Similar-looking but irrelevant material made things worse still.
 
 So the methodology works the other way round. Large work is split into small tasks, and each task receives only what it needs: its goal, the parts it touches, and the rules that apply. A developer hands over one module and its interface, not the whole codebase. A good kitchen hands the cook one recipe card, not the pantry inventory. The advertised size of a model's context is treated as a ceiling, never as a working size.
 
@@ -40,7 +40,7 @@ This idea has not been measured on its own; it follows from how models use their
 
 The AI reports: "Done. Everything works." Part of it does not.
 
-Asking the model to "check carefully" helps a little, but it is one more instruction that can fade, judged by the same attention that made the mistake. Even so, the effect of a deliberate checking step is striking. In one study, having the model verify its own answers in a structured way more than doubled the precision of its lists (from 0.17 to 0.36) and raised a fact score for biographies from 55.9 to 71.4. [6]
+Asking the model to "check carefully" helps a little, but it is one more instruction that can fade, judged by the same attention that made the mistake. Even so, the effect of a deliberate checking step is striking. In the *Chain-of-Verification* study ([Dhuliawala et al., 2023](https://arxiv.org/abs/2309.11495)) [6], having the model verify its own answers in a structured way more than doubled the precision of its lists (from 0.17 to 0.36) and raised a fact score for biographies from 55.9 to 71.4.
 
 The methodology goes one step further and moves the check **outside the model**, where attention plays no part. Every result passes three checks, always in the same order:
 
@@ -77,7 +77,7 @@ The written stages and the shared status are the restaurant's ticket board. They
 
 It is worth being precise here, because overpromising is its own kind of hallucination.
 
-The methodology does not make a model invent less. How often a model invents facts depends on the model itself. On one public leaderboard, the rate for summarising a given text ranged from 1.8% to 24.2%, depending on the model (as of 22 October 2026). [7]
+The methodology does not make a model invent less. How often a model invents facts depends on the model itself. On the public *Hallucination Leaderboard* ([Vectara](https://github.com/vectara/hallucination-leaderboard)) [7], the rate for summarising a given text ranged from 1.8% to 24.2%, depending on the model (as of 22 October 2026).
 
 What the methodology changes is how many of those errors **get through**. A short, focused context gives the model less to miss. A goal restated before the work keeps the rules alive. Checks outside the model catch what is left, and a shared memory makes sure nothing falls between sessions or people.
 
@@ -87,12 +87,19 @@ A free prompt relies on the model to get everything right. A simple task list he
 
 ## Sources
 
-All sources are open and free to read.
+All sources are open and free to read. Each entry says which point in this chapter it supports.
 
-1. Liu et al., *Lost in the Middle: How Language Models Use Long Contexts*, TACL 2024 — https://arxiv.org/abs/2307.03172
-2. Hsieh et al., *RULER: What's the Real Context Size of Your Long-Context Language Models?*, COLM 2024 — https://arxiv.org/abs/2404.06654
-3. Modarressi et al., *NoLiMa: Long-Context Evaluation Beyond Literal Matching*, ICML 2025 — https://arxiv.org/abs/2502.05167
-4. Hong, Troynikov, Huber, *Context Rot: How Increasing Input Tokens Impacts LLM Performance*, Chroma, 2025 — https://www.trychroma.com/research/context-rot
-5. Levy, Jacoby, Goldberg, *Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models*, ACL 2024 — https://arxiv.org/abs/2402.14848
-6. Dhuliawala et al., *Chain-of-Verification Reduces Hallucination in Large Language Models*, 2023 — https://arxiv.org/abs/2309.11495
-7. Vectara, *Hallucination Leaderboard* — https://github.com/vectara/hallucination-leaderboard
+1. **Liu et al., *Lost in the Middle: How Language Models Use Long Contexts*, TACL 2024** — https://arxiv.org/abs/2307.03172
+   Supports: models use the start and end of their input best and the middle worst (75.8% / 53.8% / 56.1%). Section "The middle of the pile".
+2. **Hsieh et al., *RULER: What's the Real Context Size of Your Long-Context Language Models?*, COLM 2024** — https://arxiv.org/abs/2404.06654
+   Supports: only about half of seventeen models claiming 32,000 tokens still perform well at that length. Section "The middle of the pile".
+3. **Modarressi et al., *NoLiMa: Long-Context Evaluation Beyond Literal Matching*, ICML 2025** — https://arxiv.org/abs/2502.05167
+   Supports: the drop is larger when the answer uses different words from the question (99.3% → 69.7%). Section "The middle of the pile".
+4. **Levy, Jacoby, Goldberg, *Same Task, More Tokens: the Impact of Input Length on the Reasoning Performance of Large Language Models*, ACL 2024** — https://arxiv.org/abs/2402.14848
+   Supports: reasoning weakens long before the technical limit. Section "The middle of the pile".
+5. **Hong, Troynikov, Huber, *Context Rot: How Increasing Input Tokens Impacts LLM Performance*, Chroma, 2025** — https://www.trychroma.com/research/context-rot
+   Supports: more input lowers quality; a focused input of about 300 tokens beat about 113,000 tokens for every model. Section "The middle of the pile".
+6. **Dhuliawala et al., *Chain-of-Verification Reduces Hallucination in Large Language Models*, 2023** — https://arxiv.org/abs/2309.11495
+   Supports: a structured checking step reduces invented answers (precision 0.17 → 0.36; fact score 55.9 → 71.4). Section "Who checks the checker".
+7. **Vectara, *Hallucination Leaderboard*** — https://github.com/vectara/hallucination-leaderboard
+   Supports: how often a model invents facts depends on the model (1.8% to 24.2%, as of 22 October 2026). Section "What the methodology can and cannot promise".
