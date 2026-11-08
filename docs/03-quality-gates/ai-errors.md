@@ -44,11 +44,15 @@ Asking the model to "check carefully" helps a little, but it is one more instruc
 
 The methodology goes one step further and moves the check **outside the model**, where attention plays no part. Every result passes three checks, always in the same order:
 
-1. **The checklist.** Is everything the task asked for actually there? If something is missing, the work is not finished.
-2. **The tests.** Do the automatic checks pass? If a test fails, the code is fixed, or the case that failed is handled. A test is **never** weakened to make it pass, because a weakened test does not remove the error. It only hides it.
-3. **A human look.** Does it work the way it should? If not, it is fixed or redone.
+1. **The checklist.** Is everything the task asked for actually there? The AI ticks an item only with proof: a test that passes, or a link to the place that does the job. An item without proof stays open, and the work is not finished.
+2. **The tests.** Do the automatic checks pass? The work counts as done only when they find nothing. A small finding may become a new task and be fixed later, but it is never ignored. A test is **never** weakened to make it pass, because a weakened test does not remove the error. It only hides it.
+3. **A human look where it matters.** A person always checks the important items: anything that touches money or personal data, changes how parts work together or how data is stored, or that the person has marked as risky. The rest gets spot checks, chosen by the person. Small, ordinary tasks are looked at together, once their whole module is ready. Large and risky tasks are looked at one by one.
 
-It is how you look at a child's homework: first, is every exercise done? Then, are the answers right? Only then, does it read well? Before any work starts, a person also reads the task itself, because a wrong task produces a perfect answer to the wrong question.
+A clean test run does not replace the checklist. A test finds only what it was built to look for, so the checklist is still walked item by item.
+
+A teacher with thirty notebooks works the same way. She does not solve every sum again. She checks that every exercise is there, looks closely at the hardest one, and picks a few others at random. Before any work starts, a person also reads the task itself, because a wrong task produces a perfect answer to the wrong question.
+
+This is what lets the work move fast. An AI soon produces more than anyone can read line by line, so the system has to find most errors on its own: with checklists that need proof and tests that never tire. A person's attention then goes where a mistake would cost the most.
 
 A test either passes or fails. It does not get tired, and it does not get persuaded.
 

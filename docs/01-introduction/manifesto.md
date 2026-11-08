@@ -42,7 +42,7 @@ If you are not a developer, read the examples as stories. The tools change from 
 |---|---|---|
 | **Data leaks** | The AI gets more information than the task needs. | Give the AI only what the task needs. Never share passwords, private data, or anything confidential. Work with general, public information wherever you can. |
 | **Wrong work** | The task is too big or not clear enough. | Split work into small, clear steps. Say exactly what "done" looks like before you start. Check each step before moving on. |
-| **Hallucinations** | The AI fills gaps by guessing. | Give clear facts instead of leaving gaps. Allow the AI to say "I don't know". Never use a result without checking it — first with automatic checks, then with your own eyes. |
+| **Hallucinations** | The AI fills gaps by guessing. | Give clear facts instead of leaving gaps. Allow the AI to say "I don't know". Never use a result without checking it — first with automatic checks, then with your own eyes on what matters most. |
 
 The following chapters explain each answer in detail:
 

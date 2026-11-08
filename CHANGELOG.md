@@ -14,6 +14,7 @@ History before this file was created lives in the git log.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
 ### Changed
+- "AI Failure Patterns & Hallucinations" page: the human check now goes where it matters — a person always checks the important items and spot-checks the rest; checklist items are ticked only with proof; small findings may become new tasks. The Manifesto says the same.
 - `AGENTS.md` now explains the methodology itself — its mission, core ideas, approved ways of working with AI, writing rules, content boundary and how changes reach the book — so any AI assistant can work on the project correctly.
 - "AI Failure Patterns & Hallucinations" page: examples replaced with everyday ones (a recipe, a shopping list, checking homework, a party list on the fridge).
 - "Ready Parts" page rewritten to read like a book chapter: the same eight principles told as one story with everyday examples, without repeated headings or the summary table, and with its source named in the text.
