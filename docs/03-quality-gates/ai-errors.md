@@ -1,6 +1,6 @@
 # AI Failure Patterns & Hallucinations
 
-Imagine handing a new colleague a folder of two hundred pages and asking one question. The answer is on page ninety. They read the first pages with care, skim the middle, read the last pages again, and answer with confidence. The answer is wrong. They did not lie. They simply missed the middle.
+Imagine giving a friend a thick folder of two hundred pages and asking one question. The answer is on page ninety. They read the first pages with care, skim the middle, read the last pages again, and answer with confidence. The answer is wrong. They did not lie. They simply missed the middle.
 
 AI models make the same kind of mistake, and they make it in a voice that sounds just as sure as when they are right. An answer that sounds certain but is not backed by the facts is called a **hallucination**. This chapter is about where such errors come from and why most of them never need to reach the final result.
 
@@ -18,7 +18,7 @@ Length makes it worse. The *RULER* benchmark ([Hsieh et al., 2024](https://arxiv
 
 The natural reaction is to give the AI *more*, just to be safe. That is exactly the wrong move. The *Context Rot* study ([Hong et al., 2025](https://www.trychroma.com/research/context-rot)) [5] tested eighteen models and found that quality drops as the input grows, even when the task itself stays the same. On one memory test, a short, focused input of about 300 tokens beat the full input of about 113,000 tokens for every model tested. Similar-looking but irrelevant material made things worse still.
 
-So the methodology works the other way round. Large work is split into small tasks, and each task receives only what it needs: its goal, the parts it touches, and the rules that apply. A developer hands over one module and its interface, not the whole codebase. A good kitchen hands the cook one recipe card, not the pantry inventory. The advertised size of a model's context is treated as a ceiling, never as a working size.
+So the methodology works the other way round. Large work is split into small tasks, and each task receives only what it needs: its goal, the parts it touches, and the rules that apply. A developer hands over one module and its interface, not the whole codebase. When you ask someone to bake a cake, you give them that one recipe, not the whole cookbook. The advertised size of a model's context is treated as a ceiling, never as a working size.
 
 A short context is easier for the model to use, and it is also easier for a person to check. That second benefit turns out to matter even more.
 
@@ -30,7 +30,7 @@ At the start of a long session you set the rules: no personal data in reports, n
 
 Nothing mysterious has happened. The rules were given once, and as the conversation grew they drifted into the middle, the place the model uses least. Nothing brought them back.
 
-Pilots have a simple answer to this problem: they read the same checklist before every take-off, even after thousands of flights. The methodology does the same. Right before each piece of work, the task restates three things: what the goal is, where the AI must stop and hand back, and which checklist the result must pass. It takes a few lines.
+A shopping list helps only if you look at it right before you leave the house, not once at the start of the week. The methodology works the same way. Right before each piece of work, the task restates three things: what the goal is, where the AI must stop and hand back, and which checklist the result must pass. It takes a few lines.
 
 This idea has not been measured on its own; it follows from how models use their input. What stands just before the work is what the model uses best, so that is where the rules belong.
 
@@ -48,7 +48,7 @@ The methodology goes one step further and moves the check **outside the model**,
 2. **The tests.** Do the automatic checks pass? If a test fails, the code is fixed, or the case that failed is handled. A test is **never** weakened to make it pass, because a weakened test does not remove the error. It only hides it.
 3. **A human look.** Does it work the way it should? If not, it is fixed or redone.
 
-A house is accepted the same way. The builder ticks off the work order, an inspector tests the wiring, and only then does the owner walk through the rooms. Before any work starts, a person also reads the task itself, because a wrong task produces a perfect answer to the wrong question.
+It is how you look at a child's homework: first, is every exercise done? Then, are the answers right? Only then, does it read well? Before any work starts, a person also reads the task itself, because a wrong task produces a perfect answer to the wrong question.
 
 A test either passes or fails. It does not get tired, and it does not get persuaded.
 
@@ -58,9 +58,9 @@ A test either passes or fails. It does not get tired, and it does not get persua
 
 The checks above do something less obvious as well: they **remember**.
 
-Picture a busy restaurant on a Friday night. Ten cooks, forty orders, and no one can hold all of it in their head. The kitchen still works, because every order is a ticket on a board. A cook takes a ticket and pins it to their station. No dish is cooked twice, and none is forgotten.
+Picture a family getting ready for a big birthday party. There are many jobs and many helpers, and no one can keep all of it in their head. It still works, because the jobs are written on a list on the fridge, and everyone writes their name next to the job they take. Nothing is bought twice, and nothing is forgotten.
 
-Work with AI looks more and more like that kitchen. One person may run several AI sessions at once; several people may work on the same project. Each session remembers only its own conversation. It cannot see what the session next to it has done or is about to do. Without help, steps get lost and work gets done twice.
+Work with AI looks more and more like that party. One person may run several AI sessions at once; several people may work on the same project. Each session remembers only its own conversation. It cannot see what the session next to it has done or is about to do. Without help, steps get lost and work gets done twice.
 
 The methodology keeps the memory where everyone can see it, outside the AI:
 
@@ -69,7 +69,7 @@ The methodology keeps the memory where everyone can see it, outside the AI:
 - **Automatic checks** confirm that no session is working on a task that another one has reserved.
 - **Stages planned up front.** The person splits the work as well as possible. The AI may split it further into steps that suit it, and then talks its plan and any unclear points through with the person before it begins. Each stage then passes the three checks.
 
-The written stages and the shared status are the restaurant's ticket board. They keep track of what has to be done and what was supposed to be done, however many hands are at work.
+The written stages and the shared status are the list on the fridge. They keep track of what has to be done and what was supposed to be done, however many hands are at work.
 
 ---
 
