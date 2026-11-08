@@ -49,7 +49,7 @@ The following chapters explain each answer in detail:
 - [Flow Stages & Atomic Tasks](../02-pipeline/stages.md) — how to split work into small, safe steps.
 - [Context Window Management](../02-pipeline/context-management.md) — what to give the AI, and what to keep away from it.
 - [AI Failure Patterns & Hallucinations](../03-quality-gates/ai-errors.md) — how AI goes wrong, and how to notice it.
-- [Quality Gates: Checklists at Every Step](../03-quality-gates/automated-gates.md) and the [Pre-Merge Human Review Checklist](../03-quality-gates/human-checklist.md) — how to check results before you trust them.
+- [Quality Gates: Checklists at Every Step](../03-quality-gates/automated-gates.md) and [Human Review: Where a Person Looks](../03-quality-gates/human-checklist.md) — how to check results before you trust them.
 
 ## A key principle: say it simply
 

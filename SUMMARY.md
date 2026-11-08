@@ -15,7 +15,7 @@
 ## 3. Quality & Safety Control
 * [AI Failure Patterns & Hallucinations](docs/03-quality-gates/ai-errors.md)
 * [Quality Gates: Checklists at Every Step](docs/03-quality-gates/automated-gates.md)
-* [Pre-Merge Human Review Checklist](docs/03-quality-gates/human-checklist.md)
+* [Human Review: Where a Person Looks](docs/03-quality-gates/human-checklist.md)
 
 ## 4. Real-World Case Studies
 * [Feature Generation from Scratch](docs/04-examples/feature-creation.md)

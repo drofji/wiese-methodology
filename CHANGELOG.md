@@ -7,6 +7,7 @@ History before this file was created lives in the git log.
 ## [Unreleased]
 
 ### Added
+- "Human Review: Where a Person Looks" page (was the empty "Pre-Merge Human Review Checklist"): how a risky task names, at each step, what else it touches; the four things a person looks at in review; and where a failed review sends the work back to.
 - "Flow Stages & Atomic Tasks" page (was empty): how work is split into project, stages and tasks, why a task is measured by one area of change and a short checklist rather than by time, why each task stands alone and leaves one trace, how statuses grow with the project, and what happens to open tasks when the plan changes.
 - "Quality Gates: Checklists at Every Step" page (was the empty "Automated Quality Gates"): every task carries two lists — what to do and how we know it is done — agreed before work starts; each tick needs its own proof, a separate session runs the checks, and a failed check sends the whole list back to the start.
 - "Writing a Task for AI" page (was the empty "Prompt Templates"): what a good task says, where the AI must stop and ask (anything public, deleting, anything not asked for), why an example beats a description, and how repeated instructions are written once in three layers — project rules, reusable skills, and the tools themselves.
