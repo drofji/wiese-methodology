@@ -36,8 +36,9 @@ These are the author's approved practices. Follow them in your own work on this 
 ## How to write for the book
 
 - **Plain English.** Short sentences, everyday words, one idea per sentence. If a technical term cannot be avoided, explain it in one plain sentence. This is part of the method itself: clear input leads to fewer wrong turns.
-- **It reads like a book, not like a form.** Tell each idea as flowing text: the problem, why it happens, the solution, why this solution and not the obvious alternatives, and what the reader gains. Open a chapter with a short everyday scene.
-- **The simplest examples.** Use situations everyone knows (buying milk, a shopping list, a note on the fridge, a recipe) and put the matching software example next to each one.
+- **It reads like a book, not like a form.** Tell each idea as flowing text: the problem, why it happens, the solution, why this solution and not the obvious alternatives, and what the reader gains. Open a chapter with a short everyday scene. Write prose, not documentation: paragraphs instead of bullet points and numbered lists, unless the content truly is a list.
+- **Tone: simple, lively, slightly youthful, abstract.** A light, friendly voice that talks to the reader directly, with ideas framed as general principles. Light does not mean sloppy: correct grammar, consistent terms, no slang a reader might not know.
+- **The simplest examples.** Use situations everyone knows (buying milk, a shopping list, a note on the fridge, a recipe) and weave the matching software example into the same sentences. Examples live inside the text, never in separate blocks.
 - **No repetition.** Each fact, rule or example appears once; later sections refer back to it. No summary sections that only repeat a chapter.
 - **Short section titles in plain words.** End each section on a line that makes its point.
 - **Exact facts.** Numbers come only from cited, open and free sources. Say plainly when an idea is reasoning, not measurement.

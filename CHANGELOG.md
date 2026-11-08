@@ -7,6 +7,7 @@ History before this file was created lives in the git log.
 ## [Unreleased]
 
 ### Added
+- "Who Decides, Who Works" page (was the empty "Role Separation: Architect vs. Operator"): roles instead of job titles, one main AI session that talks to you and runs the helpers, why a helper gets a complete task and why every plan comes back to the main session, how the model is picked by the kind of work, and the three things only a person ever does.
 - "Human Review: Where a Person Looks" page (was the empty "Pre-Merge Human Review Checklist"): how a risky task names, at each step, what else it touches; the four things a person looks at in review; and where a failed review sends the work back to.
 - "Flow Stages & Atomic Tasks" page (was empty): how work is split into project, stages and tasks, why a task is measured by one area of change and a short checklist rather than by time, why each task stands alone and leaves one trace, how statuses grow with the project, and what happens to open tasks when the plan changes.
 - "Quality Gates: Checklists at Every Step" page (was the empty "Automated Quality Gates"): every task carries two lists — what to do and how we know it is done — agreed before work starts; each tick needs its own proof, a separate session runs the checks, and a failed check sends the whole list back to the start.
@@ -17,6 +18,7 @@ History before this file was created lives in the git log.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
 ### Changed
+- `AGENTS.md` writing rules now ask for written prose instead of lists, examples inside the sentences, and a simple, lively, slightly youthful tone.
 - "AI Failure Patterns & Hallucinations" page: the human check now goes where it matters — a person always checks the important items and spot-checks the rest; checklist items are ticked only with proof; small findings may become new tasks. The Manifesto says the same.
 - `AGENTS.md` now explains the methodology itself — its mission, core ideas, approved ways of working with AI, writing rules, content boundary and how changes reach the book — so any AI assistant can work on the project correctly.
 - "AI Failure Patterns & Hallucinations" page: examples replaced with everyday ones (a recipe, a shopping list, checking homework, a party list on the fridge).
