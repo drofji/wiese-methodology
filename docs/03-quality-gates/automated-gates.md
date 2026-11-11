@@ -1,64 +1,54 @@
 # Quality Gates: Checklists at Every Step
 
-You are leaving for a two-week holiday. The bags are in the car, and you stop at the door. Is the stove off? The iron? Are the windows closed? You do not remember anything being wrong, and you check anyway. "I don't remember a problem" is not the same as "I checked".
+You're off on a two-week holiday. The bags are in the car, and you stop at the front door. Stove off? Iron? Windows shut? You can't remember anything being wrong, and you check anyway. Because "I don't remember a problem" and "I checked" are two very different things.
 
-Work with AI needs the same stop at the door. When there are many topics, many steps and several AI sessions, it soon becomes unclear what actually works and what was really discussed. So every step ends with a **quality gate**: a short list that must be passed before the next step may start.
+AI work needs that same stop at the door. Once you have lots of topics, lots of steps and a few AI sessions going at once, it gets blurry fast what actually works and what was really discussed. So every step ends with a **quality gate**: a short list you have to get through before the next step is allowed to start.
 
 ---
 
 ## Two lists for every task
 
-A recipe has two parts. The steps tell you what to do: cut, fry, bake. The test at the end tells you when it is ready: the toothpick comes out of the cake clean.
+A recipe has two halves. The steps tell you what to do: chop, fry, bake. The test at the end tells you when it's ready: the toothpick comes out of the cake clean.
 
-A task for AI has the same two parts:
+A task for AI has the same two halves. The **task list** says what to do, all the small steps of the work. The **check list** says how you know it's done. Take a task from a shop app, "orders get a discount from 0 to 50 percent". The task list is short: add the field, set its limits, show the new price. The check list asks whether 0 and 50 percent get accepted, whether 51 percent gets refused, whether old orders still open, and whether the discounted price actually shows up on the order page.
 
-- **The task list** says what to do. These are the small steps of the work.
-- **The check list** says how we know it is done. These are the checks.
+The order never changes. The AI works through the task list, then through the check list, and only then does the next task in the plan get to start. And it's the same for work without any code: when you discuss a topic, the questions are the task list, and "no open questions left" and "the author signed it off" are the checks.
 
-Take a task from a shop app: "Orders get a discount from 0 to 50 percent." The task list is short: add the field, set its limits, show the new price. The check list asks: are 0 and 50 percent accepted? Is 51 percent refused? Do old orders still open? Is the discounted price visible on the order page?
-
-The order never changes. The AI works through the task list, then through the check list, and only then does the next task in the plan begin.
-
-This holds for work without any code, too. When a topic is discussed, the questions are the task list. The checks are "no open questions are left" and "the author has approved it".
-
-What to do and how to know it is done are two different questions, so they get two different lists.
+What to do and how to know it's done are two different questions, so they get two different lists.
 
 ---
 
 ## Agree on the lists before you start
 
-A packing list is written at home, not in the taxi to the airport.
+You write the packing list at home, not in the taxi to the airport.
 
-Both lists are agreed in full when the task is set, and they are not patched while the work runs. A list that changes during the work tends to bend toward what was done, instead of what was needed.
+Both lists get agreed in full when you set the task, and nobody patches them while the work is running. A list that changes halfway tends to bend towards what got done instead of what was needed.
 
-Sometimes an item turns out not to fit. "Check it on a phone" makes no sense for an e-mail. The AI does not skip such an item on its own. It asks, and skips it only after a person says yes. An item skipped without anyone's approval is a silent change, and silent changes are exactly what the [stop-and-ask rule](../05-toolkit/prompt-templates.md) forbids.
+Sometimes an item just doesn't fit, like "check it on a phone" for an e-mail. The AI doesn't skip it on its own. It asks, and skips it only after a person says yes, because an item that disappears without anyone's okay is a silent change, and silent changes are exactly what the [stop-and-ask rule](../05-toolkit/prompt-templates.md) is there to prevent.
 
-The list is the agreement. Changing it is a decision, not a side effect.
+The list is the deal. Changing it is a decision, not a side effect.
 
 ---
 
 ## A new list, fixed rules
 
-A shopping list is new every week. Yet one rule applies to every item on it: look at the expiry date.
+Your shopping list is new every week. Still, one rule holds for every item on it: check the expiry date.
 
-The check list works the same way. It is written anew for each task, from that task's own acceptance criteria, so it fits the work in front of it. What must hold everywhere lives in the **project rules** for that area, and it joins every new list on its own. For web pages, one such rule is accessibility: anyone can use the page, with large text, without a mouse, or with a screen reader.
+The check list works the same way. You write it fresh for each task, from that task's own acceptance criteria, so it fits the work in front of you. What has to hold everywhere lives in the **project rules** for that area and joins every new list by itself. For web pages, accessibility is one of those rules, so anyone can use the page, with large text, without a mouse or with a screen reader.
 
-A fixed template alone grows stale and gets ticked without reading. A list built only from the task forgets the basics. Together, the task brings what is special, and the rules bring what always counts.
+A fixed template on its own goes stale and gets ticked off without anyone reading it. A list built only from the task forgets the basics. Put them together, and the task brings what's special while the rules bring what always counts.
 
 ---
 
 ## A tick needs proof
 
-In the discount task, the first three checks pass their tests. The AI then ticks the fourth one too, "the price is visible on the order page", although nobody opened the page. That is a checklist done on autopilot.
+Back to the discount task. The first three checks pass their tests, and the AI ticks the fourth one too, "the price shows up on the order page", even though nobody opened the page. That's a checklist on autopilot.
 
-Two locks stop it, and they work together:
+Two locks stop it, and they only really work together. Each item needs **its own proof**, a test, a link or a screenshot, and proof for one item never counts for another. And **a separate session runs the checks**, one that doesn't take the worker's word for anything and opens the page itself.
 
-- **Each item has its own proof**: a test, a link, a screenshot. Proof for one item never counts for another.
-- **A separate session runs the checks.** It does not take the worker's word for anything. It opens the page itself.
+The AI always tries to run the checks itself, because people make mistakes too. A separate checker saves time as well, since the main session carries on with the next piece of work while it checks. Where a person still needs to look, and at what, is covered in [Who checks the checker](ai-errors.md#who-checks-the-checker).
 
-The AI always tries to run the checks itself, because people make mistakes too. A separate checker also saves time: while it checks, the main session goes on with the next piece of work. Where a person still has to look, and what they look at, is described in [Who checks the checker](ai-errors.md#who-checks-the-checker).
-
-A tick without proof is only a promise.
+A tick without proof is just a promise.
 
 ---
 
@@ -66,7 +56,7 @@ A tick without proof is only a promise.
 
 You fix a leaking tap under the sink. Then you check more than the tap: is the floor dry, and does the water still run in the kitchen?
 
-When a check fails, the AI fixes the problem and then runs the **whole** check list again, from the start. A fix is a new change, and it can break something that passed before. Re-running only the failed check trusts old results that no longer describe the work.
+When a check fails, the AI fixes the problem and then runs the **whole** check list again, from the top. A fix is a brand-new change, and it can break something that passed before. Re-running only the failed check means trusting old results that no longer describe the work.
 
 After a fix, every tick has to be earned again.
 
@@ -74,8 +64,8 @@ After a fix, every tick has to be earned again.
 
 ## The list ends the task, not the conversation
 
-A note on the fridge is useful because it is the only one there. Ten notes, and nobody reads any of them.
+A note on the fridge works because it's the only one there. Stick ten notes up and nobody reads any of them.
 
-A list of "what to check, what comes next" belongs at the end of a planned task. It does not belong under every answer in a conversation. A list after every reply turns into noise, and noise gets skimmed: the same autopilot from another direction.
+A "what to check, what's next" list belongs at the end of a planned task, not under every answer in a chat. Put one after every reply and it turns into noise, and noise gets skimmed, which is the same autopilot again, just from the other side.
 
-A gate works because you meet it only where it matters, and you cannot walk past it.
+A gate works because you only meet it where it matters, and you can't just walk past it.
