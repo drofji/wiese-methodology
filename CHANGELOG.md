@@ -18,6 +18,7 @@ History before this file was created lives in the git log.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
 ### Changed
+- "Contributors & Attribution" page rewritten in the new tone, with the same contribution and licensing terms; the licence text itself is unchanged.
 - README / Overview rewritten in the new tone: it now promises what the methodology really does (fewer errors reach the result, not a model that never invents), tells the key ideas as prose, and links to the real GitBook site.
 - "The Manifesto & Challenges" page rewritten in the new tone: light, flowing text that talks to the reader; the fears table and the lists are now told as prose.
 - "Writing a Task for AI" page rewritten in the new tone: light, flowing text that talks to the reader, with the examples inside the sentences instead of lists.
