@@ -1,91 +1,82 @@
 # AI Failure Patterns & Hallucinations
 
-Imagine giving a friend a thick folder of two hundred pages and asking one question. The answer is on page ninety. They read the first pages with care, skim the middle, read the last pages again, and answer with confidence. The answer is wrong. They did not lie. They simply missed the middle.
+Hand a friend a fat folder of two hundred pages and ask one question. The answer is on page ninety. They read the first pages carefully, skim the middle, read the last pages again, and give you an answer with a straight face. It's wrong. They didn't lie. They just missed the middle.
 
-AI models make the same kind of mistake, and they make it in a voice that sounds just as sure as when they are right. An answer that sounds certain but is not backed by the facts is called a **hallucination**. This chapter is about where such errors come from and why most of them never need to reach the final result.
+AI models make the very same mistake, and they make it in a voice that sounds every bit as sure as when they're right. An answer that sounds certain but isn't backed by the facts is called a **hallucination**. This chapter is about where those errors come from, and why most of them never have to reach your final result.
 
-Every number here comes from published research that anyone can read for free. Each study is named where it is used, with a link, and the list at the end says which point each one supports. Where an idea rests on reasoning rather than on measurement, the text says so.
+Every number here comes from published research you can read for free. Each study is named right where it's used, with a link, and the list at the end tells you which point each one backs up. Where an idea rests on reasoning rather than on measurement, the text says so.
 
 ---
 
 ## The middle of the pile
 
-A model does not read its input the way a careful person reads a contract, line by line with equal attention. It uses what stands at the **start** and at the **end** best, and what lies in the **middle** worst.
+A model doesn't read its input the way you'd read a contract, line by line with the same attention all the way through. It uses what's at the **start** and at the **end** best, and what's in the **middle** worst.
 
-The effect is larger than most people expect. In the study *Lost in the Middle* ([Liu et al., 2024](https://arxiv.org/abs/2307.03172)) [1], a model answered correctly 75.8% of the time when the answer was in the first of twenty documents, and only 53.8% when it was in the middle. Given no documents at all, it scored 56.1%. In other words, burying the answer in the middle helped less than giving the model nothing.
+And the effect is bigger than you'd think. In the study *Lost in the Middle* ([Liu et al., 2024](https://arxiv.org/abs/2307.03172)) [1], a model got the answer right 75.8% of the time when it sat in the first of twenty documents, and only 53.8% when it sat in the middle. With no documents at all, it scored 56.1%. Read that again: hiding the answer in the middle helped less than giving the model nothing.
 
-Length makes it worse. The *RULER* benchmark ([Hsieh et al., 2024](https://arxiv.org/abs/2404.06654)) [2] tested seventeen models that claimed to handle at least 32,000 tokens; only about half still performed well at that length. When the answer uses different words from the question, so that the model has to understand rather than match, the drop is larger: in the *NoLiMa* test ([Modarressi et al., 2025](https://arxiv.org/abs/2502.05167)) [3], one leading model fell from 99.3% to 69.7%. And the study *Same Task, More Tokens* ([Levy et al., 2024](https://arxiv.org/abs/2402.14848)) [4] shows that reasoning weakens long before a model reaches its technical limit.
+Length makes it worse. The *RULER* benchmark ([Hsieh et al., 2024](https://arxiv.org/abs/2404.06654)) [2] tested seventeen models that claimed to handle at least 32,000 tokens, and only about half still did well at that length. When the answer uses different words from the question, so the model has to actually understand instead of just matching, the drop gets steeper: in the *NoLiMa* test ([Modarressi et al., 2025](https://arxiv.org/abs/2502.05167)) [3], one leading model fell from 99.3% to 69.7%. And the study *Same Task, More Tokens* ([Levy et al., 2024](https://arxiv.org/abs/2402.14848)) [4] shows that reasoning gets weaker long before a model hits its technical limit.
 
-The natural reaction is to give the AI *more*, just to be safe. That is exactly the wrong move. The *Context Rot* study ([Hong et al., 2025](https://www.trychroma.com/research/context-rot)) [5] tested eighteen models and found that quality drops as the input grows, even when the task itself stays the same. On one memory test, a short, focused input of about 300 tokens beat the full input of about 113,000 tokens for every model tested. Similar-looking but irrelevant material made things worse still.
+Your first instinct is probably to give the AI *more*, just to be safe. That's exactly the wrong move. The *Context Rot* study ([Hong et al., 2025](https://www.trychroma.com/research/context-rot)) [5] tested eighteen models and found that quality drops as the input grows, even when the task stays the same. On one memory test, a short, focused input of about 300 tokens beat the full input of about 113,000 tokens for every single model. Material that looked similar but didn't matter made things worse still.
 
-So the methodology works the other way round. Large work is split into small tasks, and each task receives only what it needs: its goal, the parts it touches, and the rules that apply. A developer hands over one module and its interface, not the whole codebase. When you ask someone to bake a cake, you give them that one recipe, not the whole cookbook. The advertised size of a model's context is treated as a ceiling, never as a working size.
+So the methodology goes the other way. You split big work into small tasks, and each task gets only what it needs: its goal, the parts it touches and the rules that apply. When you ask someone to bake a cake, you hand them that one recipe, not the whole cookbook, and a developer likewise hands over one module and its interface, not the entire codebase. Whatever context size a model advertises, you treat it as a ceiling, never as the size you actually work with.
 
-A short context is easier for the model to use, and it is also easier for a person to check. That second benefit turns out to matter even more.
+A short context is easier for the model to use, and it's also easier for you to check. That second part turns out to matter even more.
 
 ---
 
 ## Rules that fade
 
-At the start of a long session you set the rules: no personal data in reports, no changes to the tests, ask before deleting anything. Many steps later, the AI quietly stops following one of them.
+At the start of a long session you set the rules: no personal data in reports, no touching the tests, ask before deleting anything. Many steps later, the AI quietly stops following one of them.
 
-Nothing mysterious has happened. The rules were given once, and as the conversation grew they drifted into the middle, the place the model uses least. Nothing brought them back.
+Nothing spooky happened. The rules were given once, and as the conversation grew, they slid into the middle, the part the model uses least. Nothing pulled them back up.
 
-A shopping list helps only if you look at it right before you leave the house, not once at the start of the week. The methodology works the same way. Right before each piece of work, the task restates three things: what the goal is, where the AI must stop and hand back, and which checklist the result must pass. It takes a few lines.
+A shopping list only helps if you look at it right before you leave the house, not once on Monday morning. The methodology works the same way: right before each piece of work, the task repeats three things, namely what the goal is, where the AI has to stop and hand back, and which checklist the result has to pass. It takes a few lines.
 
-This idea has not been measured on its own; it follows from how models use their input. What stands just before the work is what the model uses best, so that is where the rules belong.
+This idea hasn't been measured on its own; it follows from how models use their input. Whatever stands right before the work is what the model uses best, so that's where your rules belong.
 
 ---
 
 ## Who checks the checker
 
-The AI reports: "Done. Everything works." Part of it does not.
+The AI says: "Done. Everything works." Part of it doesn't.
 
-Asking the model to "check carefully" helps a little, but it is one more instruction that can fade, judged by the same attention that made the mistake. Even so, the effect of a deliberate checking step is striking. In the *Chain-of-Verification* study ([Dhuliawala et al., 2023](https://arxiv.org/abs/2309.11495)) [6], having the model verify its own answers in a structured way more than doubled the precision of its lists (from 0.17 to 0.36) and raised a fact score for biographies from 55.9 to 71.4.
+Telling the model to "check carefully" helps a bit, but it's just one more instruction that can fade, judged by the same attention that made the mistake in the first place. Still, a deliberate checking step makes a striking difference. In the *Chain-of-Verification* study ([Dhuliawala et al., 2023](https://arxiv.org/abs/2309.11495)) [6], having the model verify its own answers in a structured way more than doubled the precision of its lists (from 0.17 to 0.36) and raised a fact score for biographies from 55.9 to 71.4.
 
-The methodology goes one step further and moves the check **outside the model**, where attention plays no part. Every result passes three checks, always in the same order:
+The methodology goes one step further and moves the check **outside the model**, where attention plays no part, and every result passes three checks in the same order. First comes **the checklist**: is everything the task asked for actually there? The AI ticks an item only with proof, like a test that passes or a link to the place that does the job, and an item without proof stays open, so the work isn't finished. Then come **the tests**: the work counts as done only when the automatic checks find nothing. A small finding can become a new task and get fixed later, but it's never ignored, and a test is **never** weakened to make it pass, because a weakened test doesn't remove the error, it just hides it. Last comes **a human look where it matters**. A person always checks the important items, meaning anything that touches money or personal data, changes how parts work together or how data is stored, or has been marked as risky, and gives the rest spot checks of their own choosing. Small, ordinary tasks get looked at together once their whole module is ready, while large and risky tasks get looked at one by one.
 
-1. **The checklist.** Is everything the task asked for actually there? The AI ticks an item only with proof: a test that passes, or a link to the place that does the job. An item without proof stays open, and the work is not finished.
-2. **The tests.** Do the automatic checks pass? The work counts as done only when they find nothing. A small finding may become a new task and be fixed later, but it is never ignored. A test is **never** weakened to make it pass, because a weakened test does not remove the error. It only hides it.
-3. **A human look where it matters.** A person always checks the important items: anything that touches money or personal data, changes how parts work together or how data is stored, or that the person has marked as risky. The rest gets spot checks, chosen by the person. Small, ordinary tasks are looked at together, once their whole module is ready. Large and risky tasks are looked at one by one.
+A clean test run doesn't replace the checklist, by the way. A test only finds what it was built to look for, so you still walk the checklist item by item.
 
-A clean test run does not replace the checklist. A test finds only what it was built to look for, so the checklist is still walked item by item.
+A teacher with thirty notebooks works exactly like this. She doesn't redo every sum. She checks that every exercise is there, looks closely at the hardest one and picks a few others at random. And before any work starts, someone also reads the task itself, because a wrong task gets you a perfect answer to the wrong question.
 
-A teacher with thirty notebooks works the same way. She does not solve every sum again. She checks that every exercise is there, looks closely at the hardest one, and picks a few others at random. Before any work starts, a person also reads the task itself, because a wrong task produces a perfect answer to the wrong question.
+This is what lets the work move fast. An AI soon produces more than anyone can read line by line, so the system has to find most errors on its own, with checklists that demand proof and tests that never get tired. Your attention then goes where a mistake would cost the most.
 
-This is what lets the work move fast. An AI soon produces more than anyone can read line by line, so the system has to find most errors on its own: with checklists that need proof and tests that never tire. A person's attention then goes where a mistake would cost the most.
-
-A test either passes or fails. It does not get tired, and it does not get persuaded.
+A test either passes or fails. It doesn't get tired, and you can't talk it round.
 
 ---
 
 ## Many hands, one memory
 
-The checks above do something less obvious as well: they **remember**.
+The checks above quietly do something else, too: they **remember**.
 
-Picture a family getting ready for a big birthday party. There are many jobs and many helpers, and no one can keep all of it in their head. It still works, because the jobs are written on a list on the fridge, and everyone writes their name next to the job they take. Nothing is bought twice, and nothing is forgotten.
+Picture a family getting ready for a big birthday party. Lots of jobs, lots of helpers, and nobody can keep it all in their head. It still works, because the jobs are on a list on the fridge and everyone writes their name next to the one they take. Nothing gets bought twice, and nothing gets forgotten.
 
-Work with AI looks more and more like that party. One person may run several AI sessions at once; several people may work on the same project. Each session remembers only its own conversation. It cannot see what the session next to it has done or is about to do. Without help, steps get lost and work gets done twice.
+AI work looks more and more like that party. You might run several AI sessions at once, and several people might work on the same project. Each session only remembers its own conversation and can't see what the session next to it has done or is about to do. Left alone, steps get lost and work gets done twice.
 
-The methodology keeps the memory where everyone can see it, outside the AI:
+So the methodology keeps the memory outside the AI, where everyone can see it. A **shared task list** shows what's open, reserved, in progress and done; in a small project one file is enough, and a bigger one uses a task manager. A **visible reservation** marks a task as "in progress" before anyone starts on it, so no other session grabs it, and **automatic checks** make sure no session works on a task someone else has reserved. On top of that, the **stages are planned up front**: you split the work as well as you can, the AI may split it further into steps that suit it, and then talks its plan and any unclear points through with you before it starts. Each stage then passes the three checks.
 
-- **A shared task list** shows what is open, reserved, in progress and done. In a small project one file is enough; a larger project uses a task manager.
-- **A visible reservation** marks a task as "in progress" before anyone starts on it, so no other session picks it up.
-- **Automatic checks** confirm that no session is working on a task that another one has reserved.
-- **Stages planned up front.** The person splits the work as well as possible. The AI may split it further into steps that suit it, and then talks its plan and any unclear points through with the person before it begins. Each stage then passes the three checks.
-
-The written stages and the shared status are the list on the fridge. They keep track of what has to be done and what was supposed to be done, however many hands are at work.
+The written stages and the shared status are your list on the fridge. They keep track of what has to be done and what was supposed to be done, however many hands are at work.
 
 ---
 
 ## What the methodology can and cannot promise
 
-It is worth being precise here, because overpromising is its own kind of hallucination.
+Let's be precise here, because overpromising is its own kind of hallucination.
 
-The methodology does not make a model invent less. How often a model invents facts depends on the model itself. On the public *Hallucination Leaderboard* ([Vectara](https://github.com/vectara/hallucination-leaderboard)) [7], the rate for summarising a given text ranged from 1.8% to 24.2%, depending on the model (as of 22 October 2026).
+The methodology doesn't make a model invent less. How often a model makes things up depends on the model itself. On the public *Hallucination Leaderboard* ([Vectara](https://github.com/vectara/hallucination-leaderboard)) [7], the rate for summarising a given text ranged from 1.8% to 24.2%, depending on the model (as of 22 October 2026).
 
-What the methodology changes is how many of those errors **get through**. A short, focused context gives the model less to miss. A goal restated before the work keeps the rules alive. Checks outside the model catch what is left, and a shared memory makes sure nothing falls between sessions or people.
+What the methodology changes is how many of those errors **get through**. A short, focused context gives the model less to miss. A goal repeated right before the work keeps the rules alive. Checks outside the model catch what's left, and a shared memory makes sure nothing falls between sessions or people.
 
-A free prompt relies on the model to get everything right. A simple task list helps everyone find their way, but it is only more text in the same context, and nothing enforces it. How large the difference is between these ways of working has not yet been measured. That measurement is planned, and this chapter will be updated with its results.
+A free prompt bets on the model getting everything right. A simple task list helps everyone find their way, but it's only more text in the same context, and nothing enforces it. How big the difference between these ways of working really is hasn't been measured yet. That measurement is planned, and this chapter will be updated with the results.
 
 ---
 
