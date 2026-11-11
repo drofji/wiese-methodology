@@ -1,56 +1,46 @@
 # Wiese Methodology
 
-> **Resilient AI-Driven Software Engineering Framework**  
-> *A pragmatic framework combining pipeline engineering, automated quality gates, and real-world software development experience.*
+> **A practical way to work with AI safely and with confidence.**
+> *Small steps, checks outside the model, and real-world software development experience.*
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC_BY--NC--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-[![Documentation](https://img.shields.io/badge/Docs-GitBook-blue)](https://gitbook.com)
+[![Documentation](https://img.shields.io/badge/Docs-GitBook-blue)](https://alexander-wiese.gitbook.io/wiese-methodology/)
 
 ---
 
 ## 📌 Overview
 
-The **Wiese Methodology** is an open-source software engineering framework designed to optimize collaboration between developers and AI coding assistants. Built upon the principles of pipeline standardization and automated failure prevention, the Wiese Methodology eliminates AI hallucinations, context loss, and code regression in production environments.
+Maybe you've tried AI and got burned: it leaked something it shouldn't have seen, did something you never asked for, or made up a fact with a perfectly straight face. Or maybe you never tried, because you expected exactly that. Either way, this is for you.
 
-It synthesizes structured engineering discipline with the adaptability, speed, and pragmatic focus required in modern software development.
+The **Wiese Methodology** is a way of working with AI that makes those risks visible and keeps them under control. It doesn't promise a model that never makes mistakes, because no method can promise that. What it does is make sure far fewer of those mistakes ever reach your result. It works with whichever AI assistant you use, and while most examples come from software development, the thinking behind them fits any kind of work.
 
 ---
 
 ## 🎯 Key Principles
 
-1. **Pipeline Architecture:** Breaking AI execution into atomic, standardized flow stages (Context → Strict Generation → Automated Validation → Integration).
-2. **Quality & Safety Gates:** Enforcing automated linting, test suites, and strict prompt constraints *before* code hits the main repository.
-3. **Pragmatic Engineering:** Rooted in real-world freelancing and production challenges—no academic fluff, only field-tested patterns.
+The work runs as a **pipeline**: you cut it into small tasks, and each one takes the same short path from context through strict generation and automated validation to integration, so every task gets only what it needs and the AI produces only what was asked for. Then come the **quality gates**: every step ends with a checklist and with automatic checks that live outside the model, so nothing reaches the main project unchecked, and a person looks where a mistake would cost the most. And all of it stays **pragmatic**, rooted in real freelancing and production work rather than in theory, built from patterns that held up in the field.
 
 ---
 
 ## 🚀 Quick Start
 
-1. **Read the Manifesto:** Understand why unstructured AI prompting creates technical debt.
-2. **Apply Rules & Configs:** Load the standard rule files and system prompts into whichever AI assistant you use.
-3. **Follow the Review Checklist:** Validate generated code using our pre-merge quality gates.
+Start with the [Manifesto](docs/01-introduction/manifesto.md) to see why unstructured prompting causes trouble and how the methodology answers each fear. Then read [Writing a Task for AI](docs/05-toolkit/prompt-templates.md) and put rule files and system prompts into your own AI assistant. Before you rely on a result, walk it through the [quality gates](docs/03-quality-gates/automated-gates.md) and the [human review](docs/03-quality-gates/human-checklist.md).
 
-📖 **[Read Full Documentation on GitBook](https://gitbook.com)**
+📖 **[Read the full book on GitBook](https://alexander-wiese.gitbook.io/wiese-methodology/)**
 
 ---
 
 ## 🤝 Contributing
 
-We welcome community feedback and suggestions! Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) to learn how you can submit ideas or propose improvements via Pull Requests.
+Feedback and ideas are very welcome. Have a look at [`CONTRIBUTING.md`](CONTRIBUTING.md) to see how you can share them or propose an improvement through a pull request.
 
 ---
 
 ## 📄 License & Attribution
 
-Author: **Alexander Wiese**  
+Author: **Alexander Wiese**
 Copyright © 2026 Alexander Wiese.
 
-This methodology is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**.
+This methodology is licensed under **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)**. You're free to share, copy and pass the material on in any medium or format, as long as you give credit to **Alexander Wiese** with a link to this repository, don't use it for commercial purposes or resale, and don't distribute a changed or remixed version without permission.
 
-- **You are free to:** Share, copy, and redistribute the material in any medium or format.
-- **Under the following terms:**
-  - **Attribution:** You must give appropriate credit to **Alexander Wiese** and provide a link to this repository.
-  - **NonCommercial:** You may not use the material for commercial purposes or resale.
-  - **NoDerivatives:** If you remix or transform the material, you may not distribute the modified material without permission.
-
-For details, see the [`LICENSE.md`](LICENSE.md) file.
+For the details, see [`LICENSE.md`](LICENSE.md).
