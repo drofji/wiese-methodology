@@ -1,103 +1,79 @@
 # Flow Stages & Atomic Tasks
 
-Nobody moves house in one go. You pack room by room, box by box, and you write on every box which room it belongs to. When a box goes missing, you know at once which one it is and where it should have gone.
+Nobody moves house in one go. You pack room by room, box by box, and you scribble "kitchen" or "bathroom" on every single one. Sounds boring? It's the reason that, when a box goes missing, you know right away which one it is and where it was supposed to go.
 
-Now picture asking an AI: "Build the whole online shop." It will produce something, and it will look finished. This chapter is about why that result cannot be trusted, and how to split the work so that every piece of it can be.
+Now imagine telling an AI: "Build me the whole online shop." You'll get something back. It'll even look finished. And that's exactly the problem, because you have no idea which parts you can trust. So let's cut the work into pieces you can.
 
 ---
 
 ## Why a big task goes wrong
 
-Ask a friend to "do the shopping for the whole month", and you will get a full car and a missing half of what you needed. Ask for tomorrow's dinner, with a short list, and you get exactly that.
+Ask a friend to "do the shopping for the whole month" and watch what happens: a full car, and half the stuff you actually needed is missing. Ask for tomorrow's dinner, with a short list, and you get exactly that.
 
-A big task for AI fails in five ways at once:
+A big task for AI fails the same way, just in five directions at once. Some of what you asked for quietly disappears, because in a long task a lot ends up in the middle, and the middle is where models pay the least attention (the details are in [The middle of the pile](../03-quality-gates/ai-errors.md#the-middle-of-the-pile)). The gaps get filled with guesses, so you get extra stuff or the wrong stuff, delivered with total confidence. Checking it all? Good luck reviewing a whole shop with real care. Fixing it? One mistake at the bottom and everything on top comes down with it. And afterwards, nobody can tell you what changed where, or why.
 
-- **Requirements get lost.** The longer the task, the more of it lands in the middle, where models pay the least attention (see [The middle of the pile](../03-quality-gates/ai-errors.md#the-middle-of-the-pile)).
-- **Extra or wrong work appears.** Gaps get filled with guesses, and a guess looks just like a real answer.
-- **The result is hard to check.** Nobody can review a whole shop with care.
-- **The result is hard to fix.** One mistake in the base pulls the rest down with it.
-- **There is no trace.** It is impossible to say which parts changed, or why.
-
-A small task avoids all five, not because the AI works better, but because there is less room for each of them.
+A small task dodges all five. Not because the AI got smarter, but because there's simply less room for things to go wrong.
 
 ---
 
 ## Few levels, each with a job
 
-A wedding is planned the same way. There is the event itself. There are stages with a date: invitations sent by May, the venue booked by June. And there are tasks: send fifty invitations.
+Planning a wedding works like this too. There's the big day. There are stages with dates, like invitations out by May and the venue booked by June. And there are the small jobs, like actually sending those fifty invitations.
 
-Work with AI uses the same three levels:
+AI work uses the same three levels. The **project** is the whole thing, the online shop. A **stage** is a chunk you can finish and use on its own, a first version or a release, with a clear "done", a deadline and its list of tasks. A **task** is one piece of work inside a stage. Big projects add one more level in between, a **feature** like "discounts in orders". Small projects skip it, and they're right to, because every extra level is one more crack for something to fall through.
 
-- **The project** is the whole thing: the online shop.
-- **A stage** is a part that can be finished and used on its own, such as a first version or a release. It has a clear "done", a deadline and its list of tasks.
-- **A task** is one piece of work inside a stage.
+You split the work down to tasks. Before a stage kicks off, the AI lays the stage description next to its task list and checks that nothing promised has gone missing.
 
-Large projects add one more level between stage and task, a **feature**, such as "discounts in orders". Small projects do without it. Every extra level is one more place where something can get lost, so there are as few as the work allows.
-
-The person splits the work down to tasks. Before a stage starts, the AI compares the stage's description with its list of tasks, so that nothing promised in the stage is missing from the work.
-
-Each level answers one question: what the whole is, what is finished when, and what is done next.
+Each level answers one question: what's the whole thing, what's done when, and what's next.
 
 ---
 
 ## How small is small
 
-The size of a task is not measured in hours. An AI and a person work at very different speeds, and time says nothing about whether the result can still be checked.
+Forget hours. An AI and a person work at completely different speeds, and the clock tells you nothing about whether you can still check the result.
 
-Two signs say a task is the right size:
+Ask two things instead. Does the task change **one area**? And is its **checklist short**? Think of a moving box that holds one room and nothing else: the discount task touches the order part of the shop and leaves the rest alone. If the checklist keeps getting longer, that's your cue. The task is too big, so cut it in two.
 
-- **It changes one area.** Like a box that holds one room, a task touches one part of the program. The discount task changes orders, and nothing else.
-- **Its checklist stays short.** If the list of checks keeps growing, the task is too big, and it is split in two.
-
-Both signs measure the same thing: whether a person can still see the whole task at once.
+Both questions really ask the same thing: can you still see the whole task at a glance?
 
 ---
 
 ## A task that stands alone
 
-A good note for a babysitter fits on one page: phone numbers, bedtime, the allergy, where the plasters are. It never says "see the other folder".
+A good note for the babysitter fits on one page. Phone numbers, bedtime, the allergy, where the plasters are. It never says "see the other folder".
 
-A task works the same way. It is one complete assignment that a person or an AI can carry out without any other document. It holds a short list of the key points from the project and the stage, written by the AI when the task is created. The full texts are available on request, but the task does not depend on them.
+Same with a task. It's one complete job that a person or an AI can do without hunting through other documents. It carries a short summary of what matters from the project and the stage, written by the AI when the task is created, and the full texts are there if anyone asks, but the task doesn't depend on them. Inside, every task takes the same short walk: it gets just the context it needs, the AI makes only what was asked for, checks outside the model test it, and then it joins the project. What to do and how you know it's done live in two separate lists, and [Quality Gates: Checklists at Every Step](../03-quality-gates/automated-gates.md) shows how.
 
-Inside, every task follows the same short path:
-
-1. **Context:** only what this task needs.
-2. **Strict generation:** the AI produces only what the task asks for.
-3. **Automated validation:** checks outside the model test the result.
-4. **Integration:** the result joins the project.
-
-What to do and how to know it is done are written as two lists, described in [Quality Gates: Checklists at Every Step](../03-quality-gates/automated-gates.md).
-
-A task that needs nothing else can be handed to anyone, and checked by anyone.
+A task that needs nothing else can go to anyone, and anyone can check it.
 
 ---
 
 ## One task, one trace
 
-The label on a moving box tells you where it belongs. In software, the label is the commit: the saved record of one change.
+The label on a moving box tells you where it belongs. In software, the label is the commit, the saved record of one change.
 
-**One task is one commit**, linked to that task in the task manager. Anyone can see which files changed, and the task says why. When something breaks later, the trace leads straight to the change that caused it, and that change can be undone without touching the rest.
+So: **one task, one commit**, linked to that task in the task manager. Anyone can see which files changed, and the task tells them why. When something breaks a month later, the trail leads straight to the change behind it, and you can undo just that one change without touching anything else.
 
-A change you can trace is a change you can take back.
+If you can trace a change, you can take it back.
 
 ---
 
 ## Statuses that grow with the project
 
-A note on the fridge needs only two columns: to do and done. A building site needs many more.
+A note on the fridge needs two columns: to do, done. A building site needs a few more.
 
-The statuses of a task grow with the project in the same way. A small project needs four: *to do → in progress → check → done*. A large one uses seven: *draft → preparation → approval → in progress → AI check → review → done*, plus *blocked* and *needs edit*. The extra steps exist where more people and more risk are involved: someone prepares the lists, someone approves them, someone reviews the result.
+Task statuses grow with the project the same way. A small project is fine with four: *to do*, *in progress*, *check*, *done*. A big one goes with seven, from *draft* through *preparation*, *approval*, *in progress*, *AI check* and *review* all the way to *done*, plus *blocked* and *needs edit* for when things get stuck. The extra steps show up exactly where more people and more risk come in, because now someone prepares the lists, someone signs them off and someone reviews the result.
 
-All of this lives in one shared task list that every session can see, as described in [Many hands, one memory](../03-quality-gates/ai-errors.md#many-hands-one-memory). When several AI sessions work at once, the main session decides which tasks may run side by side and hands them out.
+All of it sits in one shared task list that every session can see, like in [Many hands, one memory](../03-quality-gates/ai-errors.md#many-hands-one-memory). And when several AI sessions run at once, the main session decides which tasks can go side by side and hands them out.
 
-Use as many steps as the project needs, and not one more.
+Use as many steps as your project needs. Not one more.
 
 ---
 
 ## When the plan changes
 
-Fifty guests become thirty. Whoever ordered the chairs and the cake has to know, or the old order quietly stays in place.
+Fifty guests just became thirty. Whoever ordered the chairs and the cake needs to know, or you'll be eating cake for a week.
 
-When the idea behind a project changes, the same thing happens to its open tasks. Say the discount limit drops from 50 to 30 percent. The AI finds every unfinished task that this touches, marks it *needs edit*, and proposes the change. The tasks are changed only after a person says yes.
+When the idea behind a project changes, its open tasks are in the same boat. Say the discount limit drops from 50 to 30 percent. The AI finds every unfinished task this touches, marks it *needs edit* and suggests the fix. Nothing changes until a person says yes.
 
-A plan that changes in one place must change everywhere it is used, and never silently.
+Change the plan in one place, and it has to change everywhere it's used. Out loud, never quietly.
