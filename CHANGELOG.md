@@ -18,6 +18,7 @@ History before this file was created lives in the git log.
 - "Docs check" CI workflow on pushes and pull requests to `main`: validates `gitbook-docs.yaml` against GitBook's published schema and import rules, and fails when `SUMMARY.md` links a missing file or lists a file twice. Run it locally with `python .github/scripts/check_gitbook.py`.
 
 ### Changed
+- "Writing a Task for AI" page rewritten in the new tone: light, flowing text that talks to the reader, with the examples inside the sentences instead of lists.
 - "Human Review: Where a Person Looks" page rewritten in the new tone: light, flowing text that talks to the reader, with the examples inside the sentences instead of lists.
 - "Quality Gates: Checklists at Every Step" page rewritten in the new tone: light, flowing text that talks to the reader, with the examples inside the sentences instead of lists.
 - "AI Failure Patterns & Hallucinations" page rewritten in the new tone: light, flowing text that talks to the reader, with the examples inside the sentences instead of lists; all numbers and sources unchanged.
